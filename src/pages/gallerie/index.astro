@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  findAssetAttribute,
+  findMarkdownAttribute,
+  findTextAttribute,
+} from "@/lib/stoatiUtils";
+import { getElement } from "@/lib/stoatiUtils";
+import Gallery from "@/components/FullscreenGallery/Gallery";
+
+const element = await getElement("8b2371af-c02b-4b6d-9967-548b60ed76fe");
+
+const images = element.map((item) => {
+  const asset = findAssetAttribute(item.data, "mainAsset");
+  const text = findMarkdownAttribute(item.data, "description");
+  const name = findTextAttribute(item.data, "name");
+
+  return {
+    name: name?.data.text ?? "",
+    url: asset?.data.url ?? "",
+    text: text?.data.markdown ?? "",
+  };
+});
+
+const list1: { url: string; text: string; name: string }[] = [];
+const list2: { url: string; text: string; name: string }[] = [];
+const list3: { url: string; text: string; name: string }[] = [];
+
+images.forEach((item, index) => {
+  if (index % 3 === 0) {
+    list1.push(item);
+  } else if (index % 3 === 1) {
+    list2.push(item);
+  } else {
+    list3.push(item);
+  }
+});
+---
+
+<Layout>
+  <main class="flex flex-col pt-8 items-center min-h-screen">
+    <Gallery images={images} client:load />
+  </main>
+</Layout>

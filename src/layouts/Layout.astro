@@ -1,50 +1,34 @@
 ---
-interface Props {
-	title: string;
-}
+import Menu from "@/components/Menu/Menu.astro";
 
-const { title } = Astro.props;
+import "../styles/globals.css";
+import {
+  findAssetAttribute,
+  findTextAttribute,
+  getElement,
+} from "@/lib/stoatiUtils";
+
+const data = await getElement("75c0c603-7143-4eb5-8f89-48f17cb0c836");
+
+const name = findTextAttribute(data[0].data, "name");
+
+const asset = findAssetAttribute(data[0].data, "logo");
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image" href={asset?.data.url} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{name?.data.text}</title>
+  </head>
+  <body class="min-h-screen">
+    <div class="pt-4 w-full">
+      <Menu />
+    </div>
+    <slot />
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
