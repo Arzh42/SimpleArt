@@ -12,7 +12,7 @@ type Attribute = z.infer<typeof Attribute>;
 
 export const getElement = async (elementId: string) => {
   const response = await fetch(
-    `http://localhost:8000/shops/${
+    `${import.meta.env.STOATI_URL}/shops/${
       import.meta.env.STOATI_ID
     }/products?productTemplateId=${elementId}&withData=true`,
     {
