@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ContactForm from "./ContactForm.tsx";
+---
+
+<script>
+  import("altcha");
+</script>
+<Layout>
+  <div class="flex flex-col justify-center items-center w-screen flex-1">
+    <h1 class="text-xl font-semibold pb-4">Me contacter</h1>
+    <ContactForm client:visible />
+  </div>
+</Layout>

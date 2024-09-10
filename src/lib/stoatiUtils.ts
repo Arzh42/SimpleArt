@@ -10,11 +10,11 @@ const Attribute = z.object({
 
 type Attribute = z.infer<typeof Attribute>;
 
-export const getElement = async (elementId: string) => {
+export const getElement = async (elementCode: string) => {
   const response = await fetch(
-    `${import.meta.env.STOATI_URL}/shops/${
-      import.meta.env.STOATI_ID
-    }/products?productTemplateId=${elementId}&withData=true`,
+    `${import.meta.env.PUBLIC_STOATI_URL}/shops/${
+      import.meta.env.PUBLIC_STOATI_ID
+    }/products?productTemplateCode=${elementCode}&withData=true`,
     {
       headers: {
         authorization: `Bearer ${import.meta.env.STOATI_SECRET}`,
