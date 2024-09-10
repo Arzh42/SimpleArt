@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  findAssetAttribute,
+  findMarkdownAttribute,
+  findTextAttribute,
+} from "@/lib/stoatiUtils";
+import { getElement } from "@/lib/stoatiUtils";
+import BlogContent from "./BlogContent";
+const element = await getElement("blogpost");
+
+const blogposts = element.map((item) => {
+  const asset = findAssetAttribute(item.data, "mainAsset");
+  const content = findMarkdownAttribute(item.data, "content");
+  const title = findTextAttribute(item.data, "title");
+
+  return {
+    title: title?.data.text ?? "",
+    illustrationUrl: asset?.data.url ?? "",
+    content: content?.data.markdown ?? "",
+  };
+});
+---
+
+<Layout>
+  <main class="flex flex-col pt-8 items-center min-h-screen">
+    <h1 class="font-bold text-2xl">News</h1>
+
+    <BlogContent client:visible initialData={blogposts} />
+    <div class="h-12"></div>
+  </main>
+</Layout>
