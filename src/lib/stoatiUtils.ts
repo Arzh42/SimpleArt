@@ -38,7 +38,6 @@ export const getElement = async (elementCode: string) => {
     )
     .parse(json);
 };
-
 export const findTextAttribute = (
   data: Attribute[],
   templateAttributeCode: string,

@@ -2,15 +2,10 @@
 import Menu from "@/components/Menu/Menu.astro";
 
 import "../styles/globals.css";
-import {
-  findAssetAttribute,
-  findTextAttribute,
-  getElement,
-} from "@/lib/stoatiUtils";
+import { findAssetAttribute, getElement } from "@/lib/stoatiUtils";
+import { Text } from "@stoati/astro";
 
 const data = await getElement("homepage");
-
-const name = findTextAttribute(data[0].data, "name");
 
 const asset = findAssetAttribute(data[0].data, "logo");
 ---
@@ -23,7 +18,7 @@ const asset = findAssetAttribute(data[0].data, "logo");
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href={asset?.data.url} />
     <meta name="generator" content={Astro.generator} />
-    <title>{name?.data.text}</title>
+    <title><Text/></title>
   </head>
   <body class="min-h-screen flex flex-col">
     <div class="pt-4 w-full">

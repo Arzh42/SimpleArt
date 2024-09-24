@@ -64,7 +64,7 @@ const BlogContent = ({
                 className="max-w-screen-md max-h-[300px] self-center"
               />
             )}
-            <Markdown>{item.content}</Markdown>
+            <Markdown className="prose">{item.content}</Markdown>
           </div>
         );
       })}

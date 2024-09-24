@@ -1,31 +1,18 @@
 ---
-import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
-import {
-  getElement,
-  findTextAttribute,
-  findAssetAttribute,
-  findMarkdownAttribute,
-} from "@/lib/stoatiUtils";
 import { Button } from "@/components/ui/button";
-
-const data = await getElement("homepage");
-
-const name = findTextAttribute(data[0].data, "name");
-
-const presentation = findMarkdownAttribute(data[0].data, "presentation");
-const asset = findAssetAttribute(data[0].data, "mainAsset");
+import { Text, Markdown, Images } from "@stoati/astro";
 ---
 
 <Layout>
   <main class="flex flex-col md:justify-center items-center pt-8 px-4">
     <h2 class="text-5xl font-bold">
-      {name?.data.text}
+      <Text code="homepage#name" />
     </h2>
     <p class="p-4 flex items-center justify-center text-center">
-      {presentation?.data.markdown}
+      <Markdown code="homepage#presentation" />
     </p>
-    <Image width={400} height={400} src={asset?.data.url || ""} alt="blabla" />
+    <Images width={400} height={400} code="homepage#mainAsset" alt="blabla" />
     <a href="/galerie"><Button className="my-12">Voir mes oeuvres</Button></a>
   </main>
 </Layout>
