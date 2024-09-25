@@ -47,7 +47,7 @@ const Altcha = forwardRef<{ value: string | null }, AltchaProps>(
         style={{
           "--altcha-max-width": "100%",
         }}
-        challengeurl="http://localhost:8000/challenges"
+        challengeurl={import.meta.env.PUBLIC_STOATI_URL + "challenges"}
       ></altcha-widget>
     );
   }
