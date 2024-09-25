@@ -8,5 +8,5 @@ export default defineConfig({
   integrations: [react(), tailwind({
     applyBaseStyles: false,
   })],
-  outDir: "./out"
+  outDir: "./dist"
 });
