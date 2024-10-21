@@ -1,18 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Button } from "@/components/ui/button";
-import { Text, Markdown, Image } from "@stoati/astro";
+import { LiveText, LiveMarkdown, LiveImage } from "@stoati/astro";
 ---
 
 <Layout>
   <main class="flex flex-col md:justify-center items-center pt-8 px-4">
     <h2 class="text-5xl font-bold">
-      <Text code="homepage#name" />
+      <LiveText code="homepage#name" />
     </h2>
     <p class="p-4 flex items-center justify-center text-center">
-      <Markdown code="homepage#presentation" />
+      <LiveMarkdown code="homepage#presentation" />
     </p>
-    <Image width={400} height={400} code="homepage#mainAsset" alt="blabla" />
+    <LiveImage width={400} height={400} code="homepage#mainAsset" alt="blabla" />
     <a href="/galerie"><Button className="my-12">Voir mes oeuvres</Button></a>
   </main>
 </Layout>
