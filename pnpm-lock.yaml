@@ -30,8 +30,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.5)(react@18.3.1)
       '@stoati/astro':
-        specifier: ^0.0.12
-        version: 0.0.12(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))(typescript@5.6.2)(vite@5.4.4)
+        specifier: ^0.0.13
+        version: 0.0.13(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))(typescript@5.6.2)(vite@5.4.4)
       '@types/react':
         specifier: ^18.3.5
         version: 18.3.5
@@ -870,8 +870,8 @@ packages:
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
 
-  '@stoati/astro@0.0.12':
-    resolution: {integrity: sha512-uTJ5mhyP411OL5cex/h/yXhlR6DhQGddGdgbWyTLvfYvHu7awMVLxIJgj9svN1m5eiGaGzZct46YpJrkbNuIIw==}
+  '@stoati/astro@0.0.13':
+    resolution: {integrity: sha512-PCzXohrquSnG/NwAAw40Zy6Td31VyliZJg+zj+wCE18XdioEvkUlkNNdmxRphl7Mfxz3viwrHN2yS+sU2dm90A==}
     peerDependencies:
       astro: ^4.5.5
       typescript: ^5.4.3
@@ -3326,7 +3326,7 @@ snapshots:
 
   '@socket.io/component-emitter@3.1.2': {}
 
-  '@stoati/astro@0.0.12(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))(typescript@5.6.2)(vite@5.4.4)':
+  '@stoati/astro@0.0.13(astro@4.15.4(rollup@4.21.2)(typescript@5.6.2))(typescript@5.6.2)(vite@5.4.4)':
     dependencies:
       '@astrojs/react': 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.4)
       '@nanostores/react': 0.8.0(nanostores@0.11.3)(react@18.3.1)
