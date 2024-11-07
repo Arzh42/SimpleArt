@@ -2,22 +2,28 @@
 import Menu from "@/components/Menu/Menu.astro";
 
 import "../styles/globals.css";
-import { findAssetAttribute, getElement, LiveText } from "@stoati/astro";
+import {
+  findAssetAttribute,
+  findTextAttribute,
+  getElement,
+  LiveText,
+} from "@stoati/astro";
 
-const data = await getElement("homepage");
+const data = await getElement("site_config");
 
-const asset = findAssetAttribute(data[0].data, "logo");
+const favicon = findAssetAttribute(data[0].data, "favicon");
+const description = findTextAttribute(data[0].data, "description");
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description?.data.text} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image" href={asset?.data.url} />
+    <link rel="icon" type="image" href={favicon?.data.url} />
     <meta name="generator" content={Astro.generator} />
-    <title><LiveText/></title>
+    <title><LiveText code="site_config#title"/></title>
   </head>
   <body class="min-h-screen flex flex-col">
     <div class="pt-4 w-full">
