@@ -6,13 +6,13 @@ import {
   findAssetAttribute,
   findTextAttribute,
   getElement,
-  LiveText,
 } from "@stoati/astro";
 
 const data = await getElement("site_config");
 
 const favicon = findAssetAttribute(data[0].data, "favicon");
 const description = findTextAttribute(data[0].data, "description");
+const title = findTextAttribute(data[0].data, "title");
 ---
 
 <!doctype html>
@@ -23,7 +23,7 @@ const description = findTextAttribute(data[0].data, "description");
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href={favicon?.data.url} />
     <meta name="generator" content={Astro.generator} />
-    <title><LiveText code="site_config#title"/></title>
+    <title>{title?.data.text}</title>
   </head>
   <body class="min-h-screen flex flex-col">
     <div class="pt-4 w-full">
