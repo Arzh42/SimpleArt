@@ -1,5 +1,6 @@
 ---
-import { findAssetAttribute, getElement } from "@stoati/astro";
+import { findAssetAttribute, getElement } from "@/lib/stoatiUtils";
+import { LiveImage } from "@stoati/astro";
 
 const data = await getElement("homepage");
 
@@ -8,7 +9,7 @@ const asset = findAssetAttribute(data[0].data, "logo");
 
 <div class="flex gap-4 font-semibold py-2 border-b-2 w-full justify-center">
   <div class="flex max-w-screen-lg justify-between w-full items-center px-2">
-    <img src={asset?.data.url} class="max-h-[30px]" />
+    <LiveImage code="homepage#logo" className="max-h-[30px]" />
     <div class="flex gap-2 md:gap-8 text-l items-center">
       <a href="/" class="hover:font-bold">Accueil</a>
       <a href="/galerie" class="hover:font-bold">Galerie</a>
