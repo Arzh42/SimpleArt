@@ -2,8 +2,12 @@
 import Menu from "@/components/Menu/Menu.astro";
 
 import "../styles/globals.css";
-import { findAssetAttribute, getElement } from "@/lib/stoatiUtils";
-import { findTextAttribute, Text } from "@stoati/astro";
+import {
+  findAssetAttribute,
+  getElement,
+  findTextAttribute,
+  Text,
+} from "@stoati/astro";
 
 const data = await getElement("site_config");
 

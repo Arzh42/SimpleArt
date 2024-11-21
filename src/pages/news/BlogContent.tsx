@@ -4,7 +4,7 @@ import {
   findMarkdownAttribute,
   findTextAttribute,
   getElement,
-} from "@/lib/stoatiUtils";
+} from "@stoati/astro";
 import { useEffect, useState } from "react";
 
 const fetchData = async (
